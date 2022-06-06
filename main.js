@@ -1,3 +1,7 @@
+/**
+ * Función que define la altura y la anchura del tablero del juego
+ * 
+ */
 (function () {
     self.Board = function (width, height) {
         this.width = width;
@@ -18,7 +22,9 @@
     }
 })();
 
-
+/**
+ * Función que define los atributos de la pelota y su movimiento
+ */
 (function () {
     self.Ball = function (x, y, radius, board) {
         this.x = x;
@@ -63,6 +69,9 @@
     }
 })();
 
+/**
+ * Función que define las barras del juego y su movimiento
+ */
 (function () {
     self.Bar = function(x, y, width, height, board){
         this.x = x;
@@ -89,7 +98,9 @@
     }
 })();
 
-
+/**
+ * Función que muestra los elementos en pantalla 
+ */
 (function () {
     self.BoardView = function (canvas, board) {
         this.canvas = canvas;
@@ -167,6 +178,9 @@ var canvas = document.getElementById('canvas');
 var board_view = new BoardView(canvas, board);
 var ball = new Ball(350, 100, 10, board);
 
+/**
+ * Evento que escucha las teclas para mover la pelota y las barras
+ */
 document.addEventListener("keydown", function (ev) {
     if (ev.keyCode == 38) {
         ev.preventDefault();
@@ -190,6 +204,9 @@ window.requestAnimationFrame(Controller);
 
 board_view.draw();
 
+/**
+ * Función principal del programa 
+ */
 function Controller() {
     board_view.play();
     window.requestAnimationFrame(Controller);
